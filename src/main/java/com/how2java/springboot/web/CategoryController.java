@@ -2,6 +2,7 @@ package com.how2java.springboot.web;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.how2java.springboot.constant.Constant;
 import com.how2java.springboot.mapper.CategoryMapper;
 import com.how2java.springboot.pojo.Category;
 import com.how2java.springboot.util.PropertiesUtil;
@@ -24,7 +25,7 @@ public class CategoryController
     
     @RequestMapping("/listCategory")
     public String listCategory(Model m, @RequestParam(value = "start", defaultValue = "0") int start,
-        @RequestParam(value = "size", defaultValue = "5") int size)
+        @RequestParam(value = "size", defaultValue = Constant.PAGE_SIZE) int size)
         throws Exception
     {
         PageHelper.startPage(start, size, "id");
